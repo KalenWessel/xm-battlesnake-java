@@ -32,15 +32,15 @@ public class CheckSnakeTail implements BasicStrategy {
                     possibleMoves.remove(Move.UP);
                 }
 
-                if (!SnakeUtils.sameCoords(downCoords, coords[i])) {
+                if (SnakeUtils.sameCoords(downCoords, coords[i])) {
                     possibleMoves.remove(Move.DOWN);
                 }
 
-                if (!SnakeUtils.sameCoords(leftCoords, coords[i])) {
+                if (SnakeUtils.sameCoords(leftCoords, coords[i])) {
                     possibleMoves.remove(Move.LEFT);
                 }
 
-                if (!SnakeUtils.sameCoords(rightCoords, coords[i])) {
+                if (SnakeUtils.sameCoords(rightCoords, coords[i])) {
                     possibleMoves.remove(Move.RIGHT);
                 }
             }
