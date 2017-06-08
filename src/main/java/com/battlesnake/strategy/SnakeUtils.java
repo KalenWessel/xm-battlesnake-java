@@ -14,4 +14,24 @@ public class SnakeUtils {
         }
         return null;
     }
+
+    public static int[] getPossibleMoveCoord(int[] head, Move possibleMove) {
+        int[] possibleCoord = new int[2];
+        switch (possibleMove) {
+            case UP:
+                possibleCoord = new int[]{head[0], head[1] + 1};
+                break;
+            case LEFT:
+                possibleCoord = new int[]{head[0] - 1, head[1]};
+                break;
+            case Move.DOWN:
+                possibleCoord = new int[]{head[0], head[1] - 1};
+                break;
+            case RIGHT:
+                possibleCoord = new int[]{head[0] + 1, head[1]};
+                break;
+        }
+
+        return possibleCoord;
+    }
 }
