@@ -21,30 +21,24 @@ public class CheckSnakeTail implements BasicStrategy {
             int[] leftCoords = SnakeUtils.getPossibleMoveCoord(head, Move.LEFT);
             int[] rightCoords = SnakeUtils.getPossibleMoveCoord(head, Move.RIGHT);
 
-            List<Move> possibleMoves = new ArrayList<>();
-            possibleMoves.add(Move.UP);
-            possibleMoves.add(Move.DOWN);
-            possibleMoves.add(Move.RIGHT);
-            possibleMoves.add(Move.LEFT);
-
             for(int i=1; i<coords.length; i++) {
                 if (SnakeUtils.sameCoords(upCoords, coords[i])) {
-                    possibleMoves.remove(Move.UP);
+                    moves.remove(Move.UP);
                 }
 
                 if (SnakeUtils.sameCoords(downCoords, coords[i])) {
-                    possibleMoves.remove(Move.DOWN);
+                    moves.remove(Move.DOWN);
                 }
 
                 if (SnakeUtils.sameCoords(leftCoords, coords[i])) {
-                    possibleMoves.remove(Move.LEFT);
+                    moves.remove(Move.LEFT);
                 }
 
                 if (SnakeUtils.sameCoords(rightCoords, coords[i])) {
-                    possibleMoves.remove(Move.RIGHT);
+                    moves.remove(Move.RIGHT);
                 }
             }
         }
-        return remainingMoves;
+        return moves;
     }
 }
