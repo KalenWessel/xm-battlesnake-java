@@ -6,7 +6,7 @@ import org.springframework.util.StringUtils;
 
 public class SnakeUtils {
 
-    Snake findSnakeByUUID(String uuid, List<Snake> snakes) {
+    public static Snake findSnakeByUUID(String uuid, List<Snake> snakes) {
         for (Snake snake: snakes) {
             if (uuid.equals(snake.getId())) {
                 return snake;
