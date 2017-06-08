@@ -19,6 +19,7 @@ package com.battlesnake;
 import com.battlesnake.data.*;
 
 import com.battlesnake.strategy.CheckEdgeOfBoard;
+import com.battlesnake.strategy.CheckOtherSnakes;
 import com.battlesnake.strategy.CheckSnakeTail;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +47,7 @@ public class RequestController {
   public MoveResponse move(@RequestBody MoveRequest request) {
     CheckEdgeOfBoard checkEdgeOfBoard = new CheckEdgeOfBoard();
     CheckSnakeTail checkTail = new CheckSnakeTail();
+    CheckOtherSnakes checkOtherSnakes = new CheckOtherSnakes();
 
     List<Move> possibleMoves = new ArrayList<>();
     possibleMoves.add(Move.RIGHT);
@@ -55,6 +57,7 @@ public class RequestController {
 
     possibleMoves = checkTail.makeAMove(request, possibleMoves);
     possibleMoves = checkEdgeOfBoard.makeAMove(request, possibleMoves);
+    possibleMoves = checkOtherSnakes.makeAMove(request, possibleMoves);
 
     Move move = possibleMoves.get(0);
     if (move == null) {
