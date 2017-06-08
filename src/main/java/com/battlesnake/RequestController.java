@@ -53,7 +53,7 @@ public class RequestController {
     possibleMoves.add(Move.LEFT);
     possibleMoves.add(Move.UP);
 
-    possibleMoves = checkTail.makeAMove(request, possibleMoves);
+    //possibleMoves = checkTail.makeAMove(request, possibleMoves);
     possibleMoves = checkEdgeOfBoard.makeAMove(request, possibleMoves);
 
     Move move = possibleMoves.get(0);
