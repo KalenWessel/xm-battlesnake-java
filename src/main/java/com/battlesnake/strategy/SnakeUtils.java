@@ -20,13 +20,13 @@ public class SnakeUtils {
         int[] possibleCoord = new int[2];
         switch (possibleSnakeMove) {
             case UP:
-                possibleCoord = new int[]{head[0], head[1] + 1};
+                possibleCoord = new int[]{head[0], head[1] - 1};
                 break;
             case LEFT:
                 possibleCoord = new int[]{head[0] - 1, head[1]};
                 break;
             case DOWN:
-                possibleCoord = new int[]{head[0], head[1] - 1};
+                possibleCoord = new int[]{head[0], head[1] + 1};
                 break;
             case RIGHT:
                 possibleCoord = new int[]{head[0] + 1, head[1]};
