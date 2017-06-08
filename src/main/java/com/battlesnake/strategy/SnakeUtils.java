@@ -24,7 +24,7 @@ public class SnakeUtils {
             case LEFT:
                 possibleCoord = new int[]{head[0] - 1, head[1]};
                 break;
-            case Move.DOWN:
+            case DOWN:
                 possibleCoord = new int[]{head[0], head[1] - 1};
                 break;
             case RIGHT:

@@ -7,9 +7,6 @@ import com.battlesnake.strategy.SnakeUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by adahlquist on 2017-06-08.
- */
 public class CheckEdgeOfBoard implements BasicStrategy {
     public List<Move> makeAMove(MoveRequest request, List<Move> possibleMoves) {
         List<Move> nextPossibleMoves = new ArrayList<>();
