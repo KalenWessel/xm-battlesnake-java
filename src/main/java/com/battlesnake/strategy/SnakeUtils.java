@@ -1,8 +1,9 @@
 package com.battlesnake.strategy;
 
 import java.util.List;
+
+import com.battlesnake.data.Move;
 import com.battlesnake.data.Snake;
-import org.springframework.util.StringUtils;
 
 public class SnakeUtils {
 
@@ -15,9 +16,9 @@ public class SnakeUtils {
         return null;
     }
 
-    public static int[] getPossibleMoveCoord(int[] head, Move possibleMove) {
+    public static int[] getPossibleMoveCoord(int[] head, Move possibleSnakeMove) {
         int[] possibleCoord = new int[2];
-        switch (possibleMove) {
+        switch (possibleSnakeMove) {
             case UP:
                 possibleCoord = new int[]{head[0], head[1] + 1};
                 break;
@@ -33,5 +34,12 @@ public class SnakeUtils {
         }
 
         return possibleCoord;
+    }
+
+    public static boolean sameCoords(int i[], int j[]) {
+        if (i[0] == j[0] && i[1] == j[1]) {
+            return true;
+        }
+        return false;
     }
 }

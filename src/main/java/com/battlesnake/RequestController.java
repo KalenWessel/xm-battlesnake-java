@@ -18,6 +18,8 @@ package com.battlesnake;
 
 import com.battlesnake.data.*;
 
+import com.battlesnake.strategy.CheckEdgeOfBoard;
+import com.battlesnake.strategy.CheckSnakeTail;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,8 +44,25 @@ public class RequestController {
 
   @RequestMapping(value="/move", method=RequestMethod.POST, produces = "application/json")
   public MoveResponse move(@RequestBody MoveRequest request) {
+    CheckEdgeOfBoard checkEdgeOfBoard = new CheckEdgeOfBoard();
+    CheckSnakeTail checkTail = new CheckSnakeTail();
+
+    List<Move> possibleMoves = new ArrayList<>();
+    possibleMoves.add(Move.RIGHT);
+    possibleMoves.add(Move.DOWN);
+    possibleMoves.add(Move.LEFT);
+    possibleMoves.add(Move.UP);
+
+    possibleMoves = checkTail.makeAMove(request, possibleMoves);
+    possibleMoves = checkEdgeOfBoard.makeAMove(request, possibleMoves);
+
+    Move move = possibleMoves.get(0);
+    if (move == null) {
+      move = Move.RIGHT;
+    }
+
     return new MoveResponse()
-      .setMove(Move.DOWN)
+      .setMove(move)
       .setTaunt("Going Down!");
   }
     

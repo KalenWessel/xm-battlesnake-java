@@ -1,28 +1,28 @@
 package com.battlesnake.strategy;
 
+import com.battlesnake.data.Move;
 import com.battlesnake.data.MoveRequest;
 import com.battlesnake.data.Snake;
-import com.battlesnake.strategy.SnakeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CheckEdgeOfBoard implements BasicStrategy {
-    public List<Move> makeAMove(MoveRequest request, List<Move> possibleMoves) {
-        List<Move> nextPossibleMoves = new ArrayList<>();
+    public List<Move> makeAMove(MoveRequest request, List<Move> possibleSnakeMoves) {
+        List<Move> nextPossibleSnakeMoves = new ArrayList<>();
 
         Snake us = SnakeUtils.findSnakeByUUID(request.getYou(), request.getSnakes());
         int boardSize = request.getHeight();
 
-        for (Move move: possibleMoves) {
-            int[] possbileMoveCoord = SnakeUtils.getPossibleMoveCoord(us.getCoords()[0], move);
+        for (Move snakeMove : possibleSnakeMoves) {
+            int[] possbileMoveCoord = SnakeUtils.getPossibleMoveCoord(us.getCoords()[0], snakeMove);
             if (!(possbileMoveCoord[0] < 0 || possbileMoveCoord[0] == boardSize ||
                     possbileMoveCoord[1] < 0 || possbileMoveCoord[1] == boardSize)) {
-                nextPossibleMoves.add(move);
+                nextPossibleSnakeMoves.add(snakeMove);
             }
         }
 
-        return nextPossibleMoves;
+        return nextPossibleSnakeMoves;
     }
 
 
