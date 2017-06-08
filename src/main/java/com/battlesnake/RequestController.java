@@ -32,12 +32,12 @@ public class RequestController {
   @RequestMapping(value="/start", method=RequestMethod.POST, produces="application/json")
   public StartResponse start(@RequestBody StartRequest request) {
     return new StartResponse()
-      .setName("Bowser Snake")
+      .setName("Tron")
       .setColor("#FF0000")
-      .setHeadUrl("http://vignette1.wikia.nocookie.net/nintendo/images/6/61/Bowser_Icon.png/revision/latest?cb=20120820000805&path-prefix=en")
-      .setHeadType(HeadType.DEAD)
+      .setHeadUrl("http://www.supertouchart.com/wp-content/uploads/2016/07/539954915798600d2009de7b1f09530b.png")
+      .setHeadType(HeadType.FANG)
       .setTailType(TailType.PIXEL)
-      .setTaunt("Roarrrrrrrrr!");
+      .setTaunt("Trongggggalong!");
   }
 
   @RequestMapping(value="/move", method=RequestMethod.POST, produces = "application/json")
