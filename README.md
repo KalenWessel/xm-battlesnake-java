@@ -1,4 +1,5 @@
 # xm-battlesnake-java
+=========================
 
 A simple [BattleSnake AI](http://battlesnake.io) written in Java using Spring Boot, which can easily be deployed to Heroku. Spring Boot provides a simple and easy way to implement rest services required by your snake. This tutorial will help you get started (https://spring.io/guides/gs/actuator-service/).
 
